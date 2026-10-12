@@ -1,0 +1,120 @@
+# Sadam-Frank-<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sadam Prank</title>
+
+<style>
+body {
+    margin: 0;
+    background: #f0f2f5;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.header {
+    background: #1877f2;
+    color: white;
+    padding: 20px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.box {
+    background: white;
+    margin: 80px auto;
+    padding: 30px 20px;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px #0002;
+}
+
+.warning {
+    color: red;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.spinner {
+    width: 45px;
+    height: 45px;
+    border: 5px solid #ddd;
+    border-top: 5px solid #1877f2;
+    border-radius: 50%;
+    margin: 25px auto;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+#done {
+    display: none;
+    color: green;
+    font-size: 24px;
+    font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+Facebook Security
+</div>
+
+<div class="box">
+
+<div class="warning">
+⚠️ Security Error
+</div>
+
+<div class="spinner" id="spinner"></div>
+
+<p id="message">
+Security check in progress...
+<br><br>
+10 seconds remaining
+</p>
+
+<div id="done">
+😂 PRANK!<br><br>
+Sadam got you! 😄
+<br><br>
+<small>Your account is completely safe ❤️</small>
+</div>
+
+</div>
+
+<script>
+let seconds = 10;
+
+let timer = setInterval(function() {
+
+    document.getElementById("message").innerHTML =
+        "⚠️ Security check in progress..." +
+        "<br><br>" +
+        seconds + " seconds remaining";
+
+    if (navigator.vibrate) {
+        navigator.vibrate(100);
+    }
+
+    seconds--;
+
+    if (seconds < 0) {
+        clearInterval(timer);
+
+        document.getElementById("spinner").style.display = "none";
+        document.getElementById("message").style.display = "none";
+        document.getElementById("done").style.display = "block";
+    }
+
+}, 1000);
+</script>
+
+</body>
+</html>
